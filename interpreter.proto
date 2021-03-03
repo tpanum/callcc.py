@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message Call {
+    string module = 1;
+    string method = 2;
+}
+
+message Output {
+    bytes stdout = 1;
+    bytes stderr = 2;
+}
+
+service Intepreter {
+    rpc Interpret(Call) returns (stream Output) {}
+}
